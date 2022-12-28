@@ -1,0 +1,80 @@
+<component name="ProjectCodeStyleConfiguration">
+  <code_scheme name="Project" version="173">
+    <XML>
+      <option name="XML_LEGACY_SETTINGS_IMPORTED" value="true" />
+    </XML>
+  </code_scheme>
+</component><component name="ProjectCodeStyleConfiguration">
+  <state>
+    <option name="PREFERRED_PROJECT_CODE_STYLE" value="Default (1)" />
+  </state>
+</component><?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" addBOMForNewFiles="with NO BOM" />
+</project><?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelUserStore">
+    <attachedFolders>
+      <Path>.</Path>
+    </attachedFolders>
+    <explicitIncludes />
+    <explicitExcludes />
+  </component>
+</project><?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="com.jetbrains.rider.android.RiderAndroidMiscFileCreationComponent">
+    <option name="ENSURE_MISC_FILE_EXISTS" value="true" />
+  </component>
+</project><?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+  </component>
+</project>var unblocker = new Unblocker();
+…
+var cts = new CancellationTokenSource();
+var sleepTask = unblocker.InvokeAsync(ct => Thread.Sleep(1000), cts.Token);
+
+Thread.Sleep(100);
+cts.Cancel();
+
+try {
+    await sleepTask;
+} catch (TaskCanceledException) {
+    Console.WriteLine("Sleep cancelled!");
+}ublic static class Native
+{
+    [DllImport("kernel32")]
+    public static extern void Sleep(uint dwMilliseconds);
+}
+…   
+var unblocker = new Unblocker();
+…
+var cts = new CancellationTokenSource();
+var sleepTask = unblocker.InvokeAsync(ct => Native.Sleep(1000), cts.Token);
+
+Thread.Sleep(100);
+cts.Cancel();
+
+try {
+    await sleepTask;
+} catch (TaskCanceledException) {
+    Console.WriteLine("Sleep cancelled!");
+}[Serializable]
+public class Job {
+    private readonly int returnValue;
+    
+    public Job(int returnValue) {
+        this.returnValue = returnValue;
+    }
+
+    public int GetValue() {
+        return this.returnValue;
+    } 
+}
+…
+var unblocker = new Unblocker();
+…
+var j = new Job(10);
+var val = await unblocker.InvokeAsync(ct => j.GetValue());
+Console.WriteLine("Result: " + val);

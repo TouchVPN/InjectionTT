@@ -1,0 +1,18 @@
+runable(
+
+{ai-bot+started}
+
+<div> Info-text: (The RazZ Client Hack Has Started)\
+<div> popup-window{text}
+|bubbleINT1|
+:'Warning This Is No Joke This Hack Will Get You Banned In Any Malicous Use, The Owner of RazZ Is Not Elagable About The Hack And The Consequences And Actions That Happen To You'
+ @@host
+ @@goguardian Status: false
+ @@Server: Running...
+ @@IP: _ #weak
+ @@UAP Status #strong
+ 
+ 
+ 
+
+ Start()

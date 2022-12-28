@@ -1,0 +1,13 @@
+Injection:
+
+
+"<!>Not For Malicuos use<!>"
+
+
+
+
+
+
+SELECT 6 & 2; # returns 2
+SELECT 6 & 1; # returns 0CREATE USER test1 IDENTIFIED BY ‘pass1’; — privSELECT grantee, privilege_type, is_grantable FROM information_schema.user_privileges WHERE privilege_type = ‘SUPER’;SELECT host, user FROM mysql.user WHERE Super_priv = ‘Y’; # privSELECT 6 & 2; # returns 2
+SELECT 6 & 1; # returns 0

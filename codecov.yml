@@ -1,0 +1,4 @@
+ignore:
+  - '**/swing/sql/lexer/**'
+  - '**/strategy/blind/patch/**'
+  - '**/bruter/DigestMD4.java'
